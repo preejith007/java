@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-class product {
+class Product {
     int pcode;
     String pname;
     double price;
 
-    product(int c, String n, double p) {
+    Product(int c, String n, double p) {
         pcode = c;
         pname = n;
         price = p;
@@ -37,10 +37,10 @@ class product {
         int c3 = sc.nextInt();
         String n3 = sc.next();
         double p3 = sc.nextDouble();
-        product p3obj = new Product(c3, n3, p3);
+        Product p3obj = new Product(c3, n3, p3);
 
        
-        product low = p1obj;
+        Product low = p1obj;
 
         if (p2obj.price < low.price)
             low = p2obj;
