@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Area {
+
+    // Method to find area of rectangle
+    double area(double length, double breadth) {
+        return length * breadth;
+    }
+
+    // Method to find area of square
+    double area(double side) {
+        return side * side;
+    }
+
+    // Method to find area of circle
+    double area(int radius) {
+        return 3.14 * radius * radius;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Area obj = new Area();
+
+        System.out.println("Enter length and breadth of rectangle:");
+        double l = sc.nextDouble();
+        double b = sc.nextDouble();
+        System.out.println("Area of Rectangle = " + obj.area(l, b));
+
+        System.out.println("Enter side of square:");
+        double s = sc.nextDouble();
+        System.out.println("Area of Square = " + obj.area(s));
+
+        System.out.println("Enter radius of circle:");
+        int r = sc.nextInt();
+        System.out.println("Area of Circle = " + obj.area(r));
+    }
+}
