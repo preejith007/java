@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+abstract class Shape {
+    abstract void area();
+}
+
+class Rectangle extends Shape {
+    void area() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter length: ");
+        int l = sc.nextInt();
+        System.out.print("Enter breadth: ");
+        int b = sc.nextInt();
+        System.out.println("Area of Rectangle = " + (l * b));
+    }
+}
+
+class Circle extends Shape {
+    void area() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter radius: ");
+        int r = sc.nextInt();
+        System.out.println("Area of Circle = " + (3.14 * r * r));
+    }
+}
+
+class Square extends Shape {
+    void area() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter side: ");
+        int s = sc.nextInt();
+        System.out.println("Area of Square = " + (s * s));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle();
+        Circle c = new Circle();
+        Square s = new Square();
+
+        r.area();
+        c.area();
+        s.area();
+    }
+}
