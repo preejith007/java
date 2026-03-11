@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class NegativeException extends Exception {
+    NegativeException() {
+        System.out.println("Negative number entered");
+    }
+}
+
+public class Average {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n, num, sum = 0;
+
+        System.out.print("Enter number of elements: ");
+        n = sc.nextInt();
+
+        for(int i = 1; i <= n; i++) {
+            System.out.print("Enter number: ");
+            num = sc.nextInt();
+
+            try {
+                if(num < 0)
+                    throw new NegativeException();
+                else
+                    sum = sum + num;
+            }
+            catch(NegativeException e) {
+                System.out.println("Exception caught");
+            }
+        }
+
+        double avg = (double)sum / n;
+        System.out.println("Average = " + avg);
+    }
+}
