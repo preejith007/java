@@ -2,18 +2,15 @@ import java.util.Scanner;
 
 class Area {
 
-    // Method to find area of rectangle
-    double area(double length, double breadth) {
+    int area(int length, int breadth) {
         return length * breadth;
     }
 
-    // Method to find area of square
-    double area(double side) {
+    int area(int side) {
         return side * side;
     }
 
-    // Method to find area of circle
-    double area(int radius) {
+    double area(double radius) {
         return 3.14 * radius * radius;
     }
 
@@ -22,16 +19,16 @@ class Area {
         Area obj = new Area();
 
         System.out.println("Enter length and breadth of rectangle:");
-        double l = sc.nextDouble();
-        double b = sc.nextDouble();
+        int l = sc.nextInt();
+        int b = sc.nextInt();
         System.out.println("Area of Rectangle = " + obj.area(l, b));
 
         System.out.println("Enter side of square:");
-        double s = sc.nextDouble();
+        int s = sc.nextInt();
         System.out.println("Area of Square = " + obj.area(s));
 
         System.out.println("Enter radius of circle:");
-        int r = sc.nextInt();
+        double r = sc.nextDouble();
         System.out.println("Area of Circle = " + obj.area(r));
     }
 }
