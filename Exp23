@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+// Fibonacci class
+class Fib implements Runnable {
+    int n;
+
+    Fib(int n) {
+        this.n = n;
+    }
+
+    public void run() {
+        int a = 0, b = 1;
+        System.out.println("Fibonacci:");
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print(a + " ");
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        System.out.println();
+    }
+}
+
+// Even numbers class
+class Even implements Runnable {
+    int s, e;
+
+    Even(int s, int e) {
+        this.s = s;
+        this.e = e;
+    }
+
+    public void run() {
+        System.out.println("Even numbers:");
+
+        for (int i = s; i <= e; i++) {
+            if (i % 2 == 0)
+                System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
+
+// Main class
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Fibonacci limit: ");
+        int n = sc.nextInt();
+
+        System.out.print("Enter start: ");
+        int s = sc.nextInt();
+
+        System.out.print("Enter end: ");
+        int e = sc.nextInt();
+
+        Thread t1 = new Thread(new Fib(n));
+        Thread t2 = new Thread(new Even(s, e));
+
+        t1.start();
+        t2.start();
+    }
+}
