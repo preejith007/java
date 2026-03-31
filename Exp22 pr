@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+// Thread for table of 5
+class Table5 extends Thread {
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("5 x " + i + " = " + (5 * i));
+        }
+    }
+}
+
+// Thread for first N prime numbers
+class Prime extends Thread {
+    int n;
+
+    Prime(int n) {
+        this.n = n;
+    }
+
+    public void run() {
+        int count = 0, num = 2;
+
+        while (count < n) {
+            int i;
+            for (i = 2; i < num; i++) {
+                if (num % i == 0)
+                    break;
+            }
+            if (i == num) {
+                System.out.print(num + " ");
+                count++;
+            }
+            num++;
+        }
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter N: ");
+        int n = sc.nextInt();
+
+        Table5 t1 = new Table5();
+        Prime t2 = new Prime(n);
+
+        t1.start();
+        t2.start();
+    }
+}
