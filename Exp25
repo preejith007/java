@@ -1,0 +1,64 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class Calc extends Frame implements ActionListener {
+
+    TextField t1, t2, t3;
+    Button add, sub, mul, div;
+
+    Calc() {
+        setLayout(new FlowLayout());
+
+        // Input fields
+        add(new Label("Enter A:"));
+        t1 = new TextField(5);
+        add(t1);
+
+        add(new Label("Enter B:"));
+        t2 = new TextField(5);
+        add(t2);
+
+        // Buttons
+        add = new Button("+");
+        sub = new Button("-");
+        mul = new Button("*");
+        div = new Button("/");
+
+        add(add); add(sub); add(mul); add(div);
+
+        // Output field
+        t3 = new TextField(10);
+        t3.setEditable(false);
+        add(t3);
+
+        // Events
+        add.addActionListener(this);
+        sub.addActionListener(this);
+        mul.addActionListener(this);
+        div.addActionListener(this);
+
+        setSize(300,150);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int a = Integer.parseInt(t1.getText());
+        int b = Integer.parseInt(t2.getText());
+        int result = 0;
+
+        if (e.getSource() == add)
+            result = a + b;
+        if (e.getSource() == sub)
+            result = a - b;
+        if (e.getSource() == mul)
+            result = a * b;
+        if (e.getSource() == div)
+            result = a / b;
+
+        t3.setText("" + result);
+    }
+
+    public static void main(String[] args) {
+        new Calc();
+    }
+}
