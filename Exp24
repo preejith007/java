@@ -1,0 +1,53 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class Max extends Frame implements ActionListener {
+
+    TextField t1, t2, t3, t4;
+    Button b;
+
+    Max() {
+        setLayout(new FlowLayout());
+
+        add(new Label("Enter A:"));
+        t1 = new TextField(5);
+        add(t1);
+
+        add(new Label("Enter B:"));
+        t2 = new TextField(5);
+        add(t2);
+
+        add(new Label("Enter C:"));
+        t3 = new TextField(5);
+        add(t3);
+
+        b = new Button("Find Max");
+        add(b);
+
+        t4 = new TextField(5);
+        t4.setEditable(false);
+        add(t4);
+
+        b.addActionListener(this);
+
+        setSize(300,150);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int a = Integer.parseInt(t1.getText());
+        int b1 = Integer.parseInt(t2.getText());
+        int c = Integer.parseInt(t3.getText());
+
+        int max = a;
+
+        if (b1 > max) max = b1;
+        if (c > max) max = c;
+
+        t4.setText("" + max);
+    }
+
+    public static void main(String[] args) {
+        new Max();
+    }
+}
