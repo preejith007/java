@@ -1,0 +1,33 @@
+import java.io.*;
+
+class CopyFile {
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            System.out.print("Enter source file name: ");
+            String source = br.readLine();
+
+            System.out.print("Enter destination file name: ");
+            String dest = br.readLine();
+
+            FileInputStream in = new FileInputStream(source);
+            FileOutputStream out = new FileOutputStream(dest);
+
+            int ch;
+
+            // Copy data
+            while ((ch = in.read()) != -1) {
+                out.write(ch);
+            }
+
+            in.close();
+            out.close();
+
+            System.out.println("File copied successfully");
+
+        } catch (Exception e) {
+            e.printStackTrace();  // shows actual error
+        }
+    }
+}
