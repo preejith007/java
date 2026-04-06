@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+// Base class
+class Shape {
+    void area() {
+        System.out.println("Area not defined");
+    }
+}
+
+// Rectangle class
+class Rectangle extends Shape {
+    int l, b;
+
+    Rectangle(int l, int b) {
+        this.l = l;
+        this.b = b;
+    }
+
+    void area() {
+        System.out.println("Rectangle Area = " + (l * b));
+    }
+}
+
+// Circle class
+class Circle extends Shape {
+    double r;
+
+    Circle(double r) {
+        this.r = r;
+    }
+
+    void area() {
+        System.out.println("Circle Area = " + (3.14 * r * r));
+    }
+}
+
+// Square class
+class Square extends Shape {
+    int s;
+
+    Square(int s) {
+        this.s = s;
+    }
+
+    void area() {
+        System.out.println("Square Area = " + (s * s));
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter length and breadth of rectangle: ");
+        int l = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.print("Enter radius of circle: ");
+        double r = sc.nextDouble();
+
+        System.out.print("Enter side of square: ");
+        int s = sc.nextInt();
+
+        // Creating objects
+        Shape obj1 = new Rectangle(l, b);
+        Shape obj2 = new Circle(r);
+        Shape obj3 = new Square(s);
+
+        // Calling area method (Runtime Polymorphism)
+        obj1.area();
+        obj2.area();
+        obj3.area();
+    }
+}
