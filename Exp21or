@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Average {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n, num, sum = 0, count = 0;
+
+        System.out.print("Enter number of elements: ");
+        n = sc.nextInt();
+
+        for(int i = 1; i <= n; i++) {
+            System.out.print("Enter number: ");
+            num = sc.nextInt();
+
+            try {
+                if(num < 0) {
+                    throw new Exception();   // manually throw exception
+                }
+
+                sum += num;
+                count++;
+
+            } catch(Exception e) {
+                System.out.println("Negative number ignored");
+            }
+        }
+
+        if(count > 0) {
+            double avg = (double) sum / count;
+            System.out.println("Average = " + avg);
+        } else {
+            System.out.println("No valid numbers");
+        }
+    }
+}
